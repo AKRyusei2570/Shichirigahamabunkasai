@@ -1,18 +1,138 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>七里ヶ浜文化祭</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>七里ヶ浜文化祭2026</title>
+
+<style>
+body{
+    font-family:sans-serif;
+    background:#eef6ff;
+    margin:0;
+}
+
+header{
+    background:#1565c0;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    margin:0;
+}
+
+.container{
+    padding:20px;
+}
+
+.floor{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:25px;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
+}
+
+.rooms{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.room{
+    width:90px;
+    height:90px;
+    background:#b3e5fc;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.room:hover{
+    background:#81d4fa;
+}
+
+#info{
+    margin-top:30px;
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
+}
+
+.wait{
+    color:red;
+    font-size:28px;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>🎉 七里ヶ浜文化祭</h1>
+<header>
+<h1>🎉 七里ヶ浜高校文化祭</h1>
+<p>待ち時間マップ（試作版）</p>
+</header>
 
-<h2>現在の待ち時間</h2>
+<div class="container">
 
-<p>1-A お化け屋敷　15分</p>
-<p>1-B カフェ　　　5分</p>
-<p>2-A 縁日　　　　30分</p>
+<div class="floor">
+<h2>北棟3階</h2>
+
+<div class="rooms">
+
+<div class="room" onclick="show('101','ホラーハウス','5分')">
+101
+</div>
+
+<div class="room" onclick="show('102','カフェ','15分')">
+102
+</div>
+
+<div class="room" onclick="show('103','展示','0分')">
+103
+</div>
+
+<div class="room" onclick="show('201','バンド','25分')">
+201
+</div>
+
+</div>
+</div>
+
+<div id="info">
+
+<h2>教室情報</h2>
+
+<p>教室番号：<span id="room">選択してください</span></p>
+
+<p>企画：<span id="event">---</span></p>
+
+<p class="wait">待ち時間：<span id="time">---</span></p>
+
+</div>
+
+</div>
+
+<script>
+
+function show(room,event,time){
+
+document.getElementById("room").innerHTML=room;
+document.getElementById("event").innerHTML=event;
+document.getElementById("time").innerHTML=time;
+
+}
+
+</script>
 
 </body>
 </html>
