@@ -3,107 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>七里ヶ浜文化祭2026</title>
+<title>七里ヶ浜高校文化祭2026</title>
 
 <style>
 body{
-    font-family:sans-serif;
-    background:#eef6ff;
     margin:0;
+    font-family:sans-serif;
+    background:#eef5ff;
 }
 
 header{
     background:#1565c0;
     color:white;
     text-align:center;
-    padding:20px;
-}
-
-h1{
-    margin:0;
-}
-
-.container{
-    padding:20px;
+    padding:25px;
 }
 
 .floor{
     background:white;
-    border-radius:15px;
+    margin:20px;
     padding:20px;
-    margin-bottom:25px;
-    box-shadow:0 0 10px rgba(0,0,0,0.15);
+    border-radius:15px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+}
+
+.floor h2{
+    margin-top:0;
 }
 
 .rooms{
     display:flex;
-    gap:10px;
     flex-wrap:wrap;
+    gap:10px;
 }
 
 .room{
-    width:90px;
-    height:90px;
-    background:#b3e5fc;
+    width:75px;
+    height:75px;
+    background:#8fd3ff;
     border-radius:10px;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    cursor:pointer;
     font-weight:bold;
+    cursor:pointer;
 }
 
 .room:hover{
-    background:#81d4fa;
+    background:#6fc4ff;
 }
 
 #info{
-    margin-top:30px;
     background:white;
-    border-radius:15px;
+    margin:20px;
     padding:20px;
-    box-shadow:0 0 10px rgba(0,0,0,0.15);
+    border-radius:15px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
 }
 
 .wait{
     color:red;
-    font-size:28px;
+    font-size:35px;
+    font-weight:bold;
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-<h1>🎉 七里ヶ浜高校文化祭</h1>
+<h1>🎉 七里ヶ浜高校文化祭2026</h1>
 <p>待ち時間マップ（試作版）</p>
 </header>
-
-<div class="container">
 
 <div class="floor">
 <h2>北棟3階</h2>
 
 <div class="rooms">
 
-<div class="room" onclick="show('101','ホラーハウス','5分')">
-101
+<div class="room" onclick="showRoom('101','ホラーハウス','5分')">101</div>
+<div class="room" onclick="showRoom('102','展示','10分')">102</div>
+<div class="room" onclick="showRoom('103','ゲーム','20分')">103</div>
+<div class="room" onclick="showRoom('201','ハニーパニック','15分')">201</div>
+<div class="room" onclick="showRoom('202','喫茶','25分')">202</div>
+<div class="room" onclick="showRoom('203','展示','0分')">203</div>
+<div class="room" onclick="showRoom('204','ダブ','15分')">204</div>
+<div class="room" onclick="showRoom('205','ごくごく','30分')">205</div>
+<div class="room" onclick="showRoom('206','オバケショップ','5分')">206</div>
+<div class="room" onclick="showRoom('207','メイド喫茶','35分')">207</div>
+<div class="room" onclick="showRoom('208','逃げて','15分')">208</div>
+<div class="room" onclick="showRoom('209','展示','0分')">209</div>
+
+</div>
 </div>
 
-<div class="room" onclick="show('102','カフェ','15分')">
-102
+<div class="floor">
+<h2>北棟2階</h2>
+
+<div class="rooms">
+
+<div class="room">104</div>
+<div class="room">105</div>
+<div class="room">106</div>
+<div class="room">301</div>
+<div class="room">308</div>
+
+</div>
 </div>
 
-<div class="room" onclick="show('103','展示','0分')">
-103
+<div class="floor">
+<h2>北棟1階</h2>
+
+<div class="rooms">
+
+<div class="room">107</div>
+<div class="room">109</div>
+<div class="room">110</div>
+<div class="room">保健室</div>
+
+</div>
 </div>
 
-<div class="room" onclick="show('201','バンド','25分')">
-201
+<div class="floor">
+<h2>南棟3階</h2>
+
+<div class="rooms">
+
+<div class="room">PTA</div>
+<div class="room">同窓会</div>
+<div class="room">学校案内</div>
+<div class="room">茶道部</div>
+
 </div>
+</div>
+
+<div class="floor">
+<h2>南棟2階</h2>
+
+<div class="rooms">
+
+<div class="room">生物部</div>
+<div class="room">美術部</div>
+<div class="room">図書室</div>
+<div class="room">職員室</div>
 
 </div>
 </div>
@@ -112,23 +154,28 @@ h1{
 
 <h2>教室情報</h2>
 
-<p>教室番号：<span id="room">選択してください</span></p>
+<p>教室番号：101</p>
 
-<p>企画：<span id="event">---</span></p>
+<p>企画：ホラーハウス</p>
 
-<p class="wait">待ち時間：<span id="time">---</span></p>
-
-</div>
+<p class="wait">待ち時間：5分</p>
 
 </div>
 
 <script>
 
-function show(room,event,time){
+function showRoom(room,name,time){
 
-document.getElementById("room").innerHTML=room;
-document.getElementById("event").innerHTML=event;
-document.getElementById("time").innerHTML=time;
+document.getElementById("info").innerHTML=
+`
+<h2>教室情報</h2>
+
+<p>教室番号：${room}</p>
+
+<p>企画：${name}</p>
+
+<p class="wait">待ち時間：${time}</p>
+`;
 
 }
 
